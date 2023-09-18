@@ -1,0 +1,17 @@
+# Ignorar a pasta node_modules
+node_modules/
+
+# Ignorar arquivos gerados pela compilação TypeScript
+dist/
+
+# Ignorar arquivos de configuração do TypeScript
+tsconfig*.json
+
+# Ignorar o arquivo package-lock.json
+package-lock.json
+
+# Ignorar arquivos gerados pelo Jest
+coverage/
+
+# Ignorar o arquivo de configuração do Jest
+jest.config.js
