@@ -15,6 +15,7 @@ afterAll(done => {
   httpServer.close(() => {
     done();
   });
+  
 });
 
 describe('Server Tests', () => {
