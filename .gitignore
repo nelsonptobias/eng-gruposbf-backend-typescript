@@ -12,6 +12,3 @@ package-lock.json
 
 # Ignorar arquivos gerados pelo Jest
 coverage/
-
-# Ignorar o arquivo de configuração do Jest
-jest.config.js
