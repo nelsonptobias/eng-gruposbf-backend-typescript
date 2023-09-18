@@ -4,9 +4,6 @@ node_modules/
 # Ignorar arquivos gerados pela compilação TypeScript
 dist/
 
-# Ignorar arquivos de configuração do TypeScript
-tsconfig*.json
-
 # Ignorar o arquivo package-lock.json
 package-lock.json
 
