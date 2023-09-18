@@ -43,4 +43,4 @@ const httpServer = http.createServer(app);
 const PORT: any = process.env.PORT ?? 8000;
 httpServer.listen(PORT, () => console.log(`The server is running on port ${PORT}`));
 
-export { app }; // Exporte o app Express
+export { app, httpServer }; // Exporte o app Express

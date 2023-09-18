@@ -1,12 +1,20 @@
 import request from 'supertest'; 
 import { Express } from 'express';
 import { app } from '../src/server'; 
+import { httpServer } from '../src/server';
 
 let appTest: Express;
 
 beforeAll(() => {
   //start o server para os tests
   appTest = app;
+});
+
+afterAll(done => {
+  // Fecha o servidor após os testes
+  httpServer.close(() => {
+    done();
+  });
 });
 
 describe('Server Tests', () => {
