@@ -4,9 +4,22 @@ import express from 'express';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
 import path from 'path';
+import { clientRedis } from './services/redis.conect'
 
 const envPath = path.resolve(__dirname, '../config/.env');
 dotenv.config({ path: envPath }); 
+
+const client = clientRedis
+
+// Adicionando um ouvinte de evento para o caso de erro
+client.on('error', (err) => {
+  console.error('Error connecting to Redis:', err);
+});
+
+// Verificar a conexão bem-sucedida
+client.on('connect', () => {
+  console.log('Connected to Redis');
+});
 
 //legal citar que não sei pq, se eu faço esse import antes, ele nao consegue passar as váriaveis de ambiente pra frente
 import routes from './routes/convert';
@@ -50,4 +63,4 @@ const httpServer = http.createServer(app);
 const PORT: any = process.env.PORT ?? 8000;
 httpServer.listen(PORT, () => console.log(`The server is running on port ${PORT}`));
 
-export { app, httpServer }; // Exporte o app Express
+export { app, httpServer, client }; 
