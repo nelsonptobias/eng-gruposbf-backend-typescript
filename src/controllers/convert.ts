@@ -1,9 +1,9 @@
 import { Request, Response, NextFunction } from 'express';
-import axios, { AxiosResponse } from 'axios';
 import { valorProdutoNasMoeda } from '../logics/convert';
 import { Moeda } from '../interfaces/moeda';
 import { moedaProcessor } from '../processors/convert';
-import { BALANCA_MOEDAS } from '../constants/balanco';
+import { fetchCurrencyRates } from '../services/currency.api';
+
 
 
  
@@ -12,9 +12,10 @@ const getConvert = async (req: Request, res: Response, next: NextFunction) => {
     const valor: number = Number(req.params.value)
 
     //TODO: aqui vai ser o cache, pensar em uma forma dinamica que possa escalar
-    const moedasArray: Moeda = BALANCA_MOEDAS
    
     try {
+        let apiCurrencyResposta = await fetchCurrencyRates()
+        const moedasArray: Moeda = apiCurrencyResposta.rates
         const retornoApiProcessado = moedaProcessor(moedasArray, pais) 
         const valorDoProdutoEmTodasMoedas = valorProdutoNasMoeda(retornoApiProcessado, valor) 
         return res.status(200).json(valorDoProdutoEmTodasMoedas)   
@@ -27,12 +28,6 @@ const getConvert = async (req: Request, res: Response, next: NextFunction) => {
             return res.status(500).json({ error: 'Erro desconhecido' });
           }
     }
-    
-    // let result: AxiosResponse = await axios.get(`https://jsonplaceholder.typicode.com/posts`);
-    // let posts: [Post] = result.data;
-    // return res.status(200).json({
-    //     message: posts
-    // });
 };
 
 

@@ -9,3 +9,5 @@ package-lock.json
 
 # Ignorar arquivos gerados pelo Jest
 coverage/
+
+config/.env
