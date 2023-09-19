@@ -2,6 +2,13 @@ import { Express } from 'express';
 import http from 'http';
 import express from 'express';
 import morgan from 'morgan';
+import dotenv from 'dotenv';
+import path from 'path';
+
+const envPath = path.resolve(__dirname, '../config/.env');
+dotenv.config({ path: envPath }); 
+
+//legal citar que não sei pq, se eu faço esse import antes, ele nao consegue passar as váriaveis de ambiente pra frente
 import routes from './routes/convert';
 
 const app: Express = express();

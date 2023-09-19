@@ -23,4 +23,9 @@ describe('Server Tests', () => {
     expect(response.status).toBe(404);
   });
 
+  test('should return converted values for /convert/:id/:value', async () => {
+    const response = await request(app).get('/convert/USD/10');
+    expect(response.status).toBe(200);
+  });
+
 });
