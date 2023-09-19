@@ -1,6 +1,6 @@
 import request from 'supertest'; 
 import { Express } from 'express';
-import { app } from '../src/server'; 
+import { app, client } from '../src/server'; 
 import { httpServer } from '../src/server';
 
 let appTest: Express;
@@ -12,6 +12,8 @@ beforeAll(() => {
 
 afterAll(done => {
   // Fecha o servidor após os testes
+  client.quit()
+
   httpServer.close(() => {
     done();
   });
