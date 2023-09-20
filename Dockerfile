@@ -1,23 +1,19 @@
-# Use a imagem oficial do Node.js como base
-FROM node:latest
+# Use uma imagem Node.js como base
+FROM node:14
 
-# Defina o diretório de trabalho dentro do contêiner
+# Crie o diretório de trabalho no contêiner
 WORKDIR /usr/src/app
 
-# Copie o package.json e o package-lock.json para o diretório de trabalho
+# Copie os arquivos necessários para o contêiner
 COPY package*.json ./
-
-# Instale as dependências do projeto
-RUN npm install
-
-# Copie o restante do código-fonte para o diretório de trabalho
+COPY config/.env ./.env
 COPY . .
 
-# Compilar o código TypeScript
-RUN npm run build
+# Instale as dependências e construa o aplicativo
+RUN npm install && npm run build
 
-# Expor a porta em que o aplicativo será executado
+# Expõe a porta que a aplicação será executada
 EXPOSE 8000
 
 # Comando para iniciar a aplicação
-CMD ["npm", "run", "start"]
+CMD ["npm", "start"]
