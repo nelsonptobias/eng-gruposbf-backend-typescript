@@ -33,8 +33,8 @@ Descrição curta e informativa sobre o projeto.
 
 ### Instalação
 
-1. Clone o repositório: `git clone https://github.com/seu-usuario/seu-repositorio.git`
-2. Entre no diretório do projeto: `cd nome-do-projeto`
+1. Clone o repositório
+2. Entre no diretório do projeto
 3. Instale as dependências: `npm install`
 
 ### Configuração
