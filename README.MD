@@ -46,7 +46,7 @@ NODE_ENV='development'
 API_URL='http://data.fixer.io/api/latest'
 API_KEY='098cfd4dba04c11c44fdd3f6c9f3b9df'
 ```
-Perceba que deixei o evelopment, pelo tratamento diferenciar em teste e por não existir um cenário de produção.
+Perceba que deixei o development, esse tratamento diferencia em teste e por não existir um cenário de produção.
 
 ### Rodando Localmente
 
