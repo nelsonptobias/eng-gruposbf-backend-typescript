@@ -87,5 +87,8 @@ OBS: Não  deixei porta configuravel no exemplo, parafacilitar a tradução no c
 
 ## Decisões Arquiteturais
 
-- **Padrões de código**: Foi adotado o padrão de código X para garantir consistência e legibilidade.
-- **Estrutura de pastas**: A divisão do projeto em pastas (controllers, logics, etc.) foi escolhida para manter a organização e facilitar a manutenção.
+- **Swagger e afins**: Como só temos uma rota, preferi descrever o uso da mesma, sem adicionar um ferramenta pra isso, para não adicionar mais complexidade ao exemplo. 
+
+- **Valores fixos no código**: Pensando justamente na facilidade de uso, coisas que não precisam ser configuradas nesse contexto, como: _chave de cache, chave da api do seriço que utilzie, etc..._. Ponderei e deixei de forma que, apenas as configs no env são suficientes para o uso.
+
+- **Estrutura de pastas**: A divisão do projeto em pastas (controllers, logics, etc.) foi escolhida para manter a organização e facilitar a manutenção. Não vi necessidade de estabelecer ainda mais complexidade diante do problema (como clean arquiteture ou uma arquitetura hexagonal, por exemplo...). 
