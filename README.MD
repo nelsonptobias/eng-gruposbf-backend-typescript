@@ -72,12 +72,12 @@ OBS: Não  deixei porta configuravel no exemplo, parafacilitar a tradução no c
 
 ### Endpoint
 
-- `/convert/:currency/:amount`
+- `/convert/:id/:value`
 
 ### Parâmetros
 
-- `currency`: Código da moeda a ser convertida.
-- `amount`: Valor a ser convertido.
+- `id`: Código da moeda a ser convertida.
+- `value`: Valor a ser convertido.
 
 ### Exemplo de Uso
 
