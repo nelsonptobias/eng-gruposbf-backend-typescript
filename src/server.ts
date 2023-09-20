@@ -11,7 +11,6 @@ dotenv.config({ path: envPath });
 
 const client = clientRedis
 
-// Adicionando um ouvinte de evento para o caso de erro
 client.on('error', (err) => {
   console.error('Error connecting to Redis:', err);
 });
