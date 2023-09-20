@@ -1,10 +1,8 @@
 import nock from 'nock';
 import dotenv from 'dotenv';
 
-// Carregue as variáveis de ambiente do arquivo .env.test
 dotenv.config({ path: './config/.env.test' });
 
-// Configure o nock para interceptar as requisições e fornecer as respostas desejadas
 const mockedResponse = {
   rates: {
     USD: 1.2,

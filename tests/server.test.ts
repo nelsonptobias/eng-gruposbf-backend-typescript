@@ -11,9 +11,9 @@ beforeAll(() => {
 });
 
 afterAll(done => {
-  // Fecha o servidor após os testes
+  //fecha conexao com o redis
   client.quit()
-
+  // Fecha o servidor após os testes
   httpServer.close(() => {
     done();
   });

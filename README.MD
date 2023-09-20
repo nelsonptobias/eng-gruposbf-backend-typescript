@@ -33,8 +33,8 @@ Descrição curta e informativa sobre o projeto.
 
 ### Instalação
 
-1. Clone o repositório: `git clone https://github.com/seu-usuario/seu-repositorio.git`
-2. Entre no diretório do projeto: `cd nome-do-projeto`
+1. Clone o repositório
+2. Entre no diretório do projeto
 3. Instale as dependências: `npm install`
 
 ### Configuração
@@ -46,7 +46,7 @@ NODE_ENV='development'
 API_URL='http://data.fixer.io/api/latest'
 API_KEY='098cfd4dba04c11c44fdd3f6c9f3b9df'
 ```
-Perceba que deixei o evelopment, pelo tratamento diferenciar em teste e por não existir um cenário de produção.
+Perceba que deixei o development, esse tratamento diferencia em teste e por não existir um cenário de produção.
 
 ### Rodando Localmente
 
@@ -72,12 +72,12 @@ OBS: Não  deixei porta configuravel no exemplo, parafacilitar a tradução no c
 
 ### Endpoint
 
-- `/convert/:currency/:amount`
+- `/convert/:id/:value`
 
 ### Parâmetros
 
-- `currency`: Código da moeda a ser convertida.
-- `amount`: Valor a ser convertido.
+- `id`: Código da moeda a ser convertida.
+- `value`: Valor a ser convertido.
 
 ### Exemplo de Uso
 

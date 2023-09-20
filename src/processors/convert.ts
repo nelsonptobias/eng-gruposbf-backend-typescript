@@ -14,5 +14,4 @@ const moedaProcessor = (rates: Moeda, nomeMoeda: string): Record<string, number>
     return baseValues
 }
 
-
 export {moedaProcessor}
