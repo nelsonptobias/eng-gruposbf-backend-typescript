@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon --exec ts-node -r dotenv/config -r ./config/.env src/server.ts",
     "build": "rm -rf build/ && tsc",
-    "start": "node -r dotenv/config/.env build/server.js",
+    "start": "node -r dotenv/config build/server.js",
     "test": "set NODE_ENV=test&& jest --setupFiles ./tests/nock-setup.ts"
   },
   "keywords": [],

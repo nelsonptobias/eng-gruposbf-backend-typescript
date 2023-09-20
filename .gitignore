@@ -10,4 +10,7 @@ package-lock.json
 # Ignorar arquivos gerados pelo Jest
 coverage/
 
+# Ignorar arquivos gerados no build do tsc
+build/
+
 config/.env
