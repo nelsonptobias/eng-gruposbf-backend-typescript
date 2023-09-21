@@ -64,9 +64,10 @@ OBS: Não  deixei porta configuravel no exemplo, parafacilitar a tradução no c
 - Para buildar o projeto: `npm run build`
 
 ### Usando Docker
+Como a aplicação tem outras ferramentas como Prometheus, grafana, etc... juntos, usei um docker-compose para instancialos 
 
-- Construa a imagem Docker: `docker build -t nome-da-imagem .`
-- Rode o contêiner: `docker run -p 8000:8000 nome-da-imagem`
+- Use o comando : `docker-compose up .`
+
 
 ## API - Rota de Conversão de Moeda
 
@@ -84,6 +85,32 @@ OBS: Não  deixei porta configuravel no exemplo, parafacilitar a tradução no c
 - **URL**: `http://localhost:8000/convert/USD/10`
 - **Método**: `GET`
 - **Resposta**: Retorna o valor convertido.
+
+## Monitoramento de Métricas
+
+A aplicação foi configurada para coletar métricas essenciais, que oferecem insights valiosos sobre o desempenho e a saúde do sistema em execução. Essas métricas são coletadas utilizando o [Prometheus](https://prometheus.io/), um sistema de monitoramento e alerta de código aberto altamente escalável.
+
+### Integração de Métricas
+
+As métricas são geradas em pontos estratégicos do código-fonte e, posteriormente, expostas em um endpoint `/metrics`. Essas métricas são coletadas pelo Prometheus, permitindo monitoramento em tempo real e geração de alertas com base em regras pré-definidas.
+
+A exposição das métricas é feita utilizando a biblioteca [prom-client](https://github.com/siimon/prom-client), que facilita a criação e o gerenciamento de métricas no formato aceito pelo Prometheus.
+
+### Como Utilizar as Métricas
+
+Para acessar as métricas, basta fazer acessar http://localhost:9090/ para o prompt do Prometheus, ou criar um dashboard no grafana no endereço http://localhost:3000/
+
+### Configuração
+
+Para configurar o sistema de monitoramento de métricas, consulte o arquivo [prometheus.yml](./prometheus-config/prometheus.yml). Esse arquivo contém a configuração do Prometheus para raspagem das métricas da aplicação.
+
+A aplicação e o Prometheus estão integrados por meio de um [Docker Compose](./docker-compose.yml), permitindo a execução conjunta dos serviços de forma fácil e integrada.
+
+### Personalização
+
+É possível personalizar as métricas coletadas, incluindo novas métricas para monitorar aspectos específicos da aplicação. Para isso, consulte a documentação da biblioteca [prom-client](https://github.com/siimon/prom-client) para exemplos e técnicas de customização.
+
+
 
 ## Decisões Arquiteturais
 
