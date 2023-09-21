@@ -30,4 +30,11 @@ describe('Server Tests', () => {
     expect(response.status).toBe(200);
   });
 
+  it('should return metrics', async () => {
+    const response = await request(app).get('/metrics');
+    expect(response.status).toBe(200);
+    expect(response.headers['content-type']).toMatch(/text\/plain/);
+    expect(response.text).toMatch(/convert_requests_total/);
+  });
+
 });
