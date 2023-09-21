@@ -3,7 +3,6 @@ import { valorProdutoNasMoeda } from '../logics/convert';
 import { Moeda } from '../interfaces/moeda';
 import { moedaProcessor } from '../processors/convert';
 import { fetchCurrencyRates } from '../services/currency.api';
-import { Counter, register } from 'prom-client';
 import CounterMetric from '../metrics/metrics';
 
  
