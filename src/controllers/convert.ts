@@ -3,14 +3,17 @@ import { valorProdutoNasMoeda } from '../logics/convert';
 import { Moeda } from '../interfaces/moeda';
 import { moedaProcessor } from '../processors/convert';
 import { fetchCurrencyRates } from '../services/currency.api';
-
-
+import { Counter, register } from 'prom-client';
+import CounterMetric from '../metrics/metrics';
 
  
-const getConvert = async (req: Request, res: Response, next: NextFunction) => {
+const getConvert = async (req: Request, res: Response) => {
     const pais: string = req.params.id
     const valor: number = Number(req.params.value)
     try {
+      // Metrica para o Prometheus
+      CounterMetric.inc({ currency: pais });
+
       let apiCurrencyResposta = await fetchCurrencyRates()
       const moedasArray: Moeda = apiCurrencyResposta.rates
       const retornoApiProcessado = moedaProcessor(moedasArray, pais) 
@@ -27,6 +30,5 @@ const getConvert = async (req: Request, res: Response, next: NextFunction) => {
       }
     }
 };
-
 
 export default { getConvert};
