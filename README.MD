@@ -1,5 +1,3 @@
-# Eng GruposBF Backend TypeScript
-
 Descrição curta e informativa sobre o projeto.
 
 ## Estrutura de Pastas
